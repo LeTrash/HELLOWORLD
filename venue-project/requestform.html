@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Form</title>
+    <h1>Venue Request Form</h1>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  </head>
+  <!-- Request form will ask for the following: Email, name, size of party, event title, date, specific venue, phone number, and event description  -->
+  <body>
+    <form action="" id="request-form">
+      <table>
+        <div class="formElement">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="visitor_name" required />
+        </div>
+        <div class="formElement">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="visitor_email" required />
+        </div>
+        <div class="formElement">
+          <label for="phone">Phone Number</label>
+          <input
+            type="text"
+            id="phone"
+            name="visitor_phone"
+            pattern="(\d{3})-?\s?(\d{3})-?\s?(\d{4})"
+            required
+          />
+        </div>
+        <div class="formElement">
+          <label for="party">Party Size</label>
+          <input type="text" id="party" name="visitor_party" />
+        </div>
+        <div class="formElement">
+          <label for="venue-selection">Select Venue</label>
+          <select id="venue-selection" name="venues" required>
+            <option value="connecting">Venue1</option>
+            <option value="connecting">Venue2</option>
+            <option value="connecting">Venue3</option>
+          </select>
+        </div>
+        <div class="formElement">
+          <label for="date-request">Date: </label>
+          <input type="date" id="date-request" name="date" required />
+        </div>
+        <div class="formElement">
+          <label for="comments">Details</label>
+          <textarea
+            id="comments"
+            name="visitor_comments"
+            placeholder="Let us know about anything else that might be important."
+          ></textarea>
+        </div>
+      </table>
+    </form>
+    <!-- <a href="submission.html"> -->
+    <button type="submit">Submit</button>
+    <!-- </a> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  </body>
+</html>
