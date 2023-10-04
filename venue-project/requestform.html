@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Request Form</title>
     <h1>Venue Request Form</h1>
+    <link rel="stylesheet" href="./styles.css" />
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script> -->
   </head>
   <!-- Request form will ask for the following: Email, name, size of party, event title, date, specific venue, phone number, and event description  -->
   <body>
-    <form action="" id="venueRequest">
-      <table>
+    <div class="container">
+      <form action="" id="venueRequest">
+        <div class="alert">Thank you for submitting your request</div>
         <div class="formElement">
           <label for="name">Name</label>
           <input type="text" id="name" required />
@@ -51,13 +53,18 @@
           <label for="comments">Details</label>
           <textarea
             id="comments"
+            cols="30"
+            rows="10"
             placeholder="Let us know about anything else that might be important."
           ></textarea>
         </div>
-      </table>
-    </form>
+        <div class="formElement">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
     <!-- <a href="submission.html"> -->
-    <button type="submit">submit</button>
+
     <!-- </a> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="./form.js"></script>

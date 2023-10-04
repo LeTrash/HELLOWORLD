@@ -31,6 +31,17 @@ function submitForm(e) {
 
   //   console.log(name, email, phone, party, venue, date, comments);
   saveMessages = (name, email, phone, party, venue, date, comments);
+
+  //alert
+  document.querySelector(".alert").style.display = "block";
+
+  //remove alert
+  setTimeout(() => {
+    document.querySelector(".alert").style.display = "none";
+  }, 3000);
+
+  //reset form
+  document.getElementById("venueRequest").requestFullscreen();
 }
 
 const saveMessages = (name, email, phone, party, venue, date, comments) => {
