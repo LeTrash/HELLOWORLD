@@ -1,3 +1,6 @@
+src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js";
+src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCRJ5PnudFcgK1LfizQTIwgkEsbJPoElCQ",
   authDomain: "venue-request.firebaseapp.com",
