@@ -16,29 +16,28 @@
       <table>
         <div class="formElement">
           <label for="name">Name</label>
-          <input type="text" id="name" name="visitor_name" required />
+          <input type="text" id="name" required />
         </div>
         <div class="formElement">
           <label for="email">Email</label>
-          <input type="text" id="email" name="visitor_email" required />
+          <input type="text" id="email" required />
         </div>
         <div class="formElement">
           <label for="phone">Phone Number</label>
           <input
             type="text"
             id="phone"
-            name="visitor_phone"
             pattern="(\d{3})-?\s?(\d{3})-?\s?(\d{4})"
             required
           />
         </div>
         <div class="formElement">
           <label for="party">Party Size</label>
-          <input type="text" id="party" name="visitor_party" />
+          <input type="text" id="party" />
         </div>
         <div class="formElement">
           <label for="venue-selection">Select Venue</label>
-          <select id="venue-selection" name="venues" required>
+          <select id="venue-selection" required>
             <option value="connecting">Venue1</option>
             <option value="connecting">Venue2</option>
             <option value="connecting">Venue3</option>
@@ -46,13 +45,12 @@
         </div>
         <div class="formElement">
           <label for="date-request">Date: </label>
-          <input type="date" id="date-request" name="date" required />
+          <input type="date" id="date-request" required />
         </div>
         <div class="formElement">
           <label for="comments">Details</label>
           <textarea
             id="comments"
-            name="visitor_comments"
             placeholder="Let us know about anything else that might be important."
           ></textarea>
         </div>
