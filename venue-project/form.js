@@ -1,5 +1,9 @@
-src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js";
-src = "https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js";
+{
+  /* <>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</>; */
+}
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRJ5PnudFcgK1LfizQTIwgkEsbJPoElCQ",
@@ -16,33 +20,12 @@ firebase.initializeApp(firebaseConfig);
 //reference database
 var venueRequestDB = firebase.database().ref("venueRequest");
 
-document.getElementById("venueRequest").addEventListener("submit", submitForm);
-
-function submitForm(e) {
-  e.preventDefault();
-
-  var name = getElementVal("name");
-  var email = getElementVal("email");
-  var phone = getElementVal("phone");
-  var party = getElementVal("party");
-  var venue = getElementVal("venue-selection");
-  var date = getElementVal("date-request");
-  var comments = getElementVal("comments");
-
-  //   console.log(name, email, phone, party, venue, date, comments);
-  saveMessages = (name, email, phone, party, venue, date, comments);
-
-  //alert
-  document.querySelector(".alert").style.display = "block";
-
-  //remove alert
-  setTimeout(() => {
-    document.querySelector(".alert").style.display = "none";
-  }, 3000);
-
-  //reset form
-  document.getElementById("venueRequest").requestFullscreen();
-}
+document
+  .getElementById("venueRequest")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+    submitForm(e);
+  });
 
 const saveMessages = (name, email, phone, party, venue, date, comments) => {
   var newRequestForm = venueRequestDB.push();
@@ -57,6 +40,29 @@ const saveMessages = (name, email, phone, party, venue, date, comments) => {
     comments: comments,
   });
 };
+
+function submitForm(e) {
+  var name = getElementVal("name");
+  var email = getElementVal("email");
+  var phone = getElementVal("phone");
+  var party = getElementVal("party");
+  var venue = getElementVal("venue-selection");
+  var date = getElementVal("date-request");
+  var comments = getElementVal("comments");
+
+  //   console.log(name, email, phone, party, venue, date, comments);
+
+  //alert
+  document.querySelector(".alert").style.display = "block";
+  saveMessages(name, email, phone, party, venue, date, comments);
+  //reset form
+  document.getElementById("venueRequest").reset();
+
+  //remove alert
+  setTimeout(() => {
+    document.querySelector(".alert").style.display = "none";
+  }, 3000);
+}
 
 const getElementVal = (id) => {
   return document.getElementById(id).value;
