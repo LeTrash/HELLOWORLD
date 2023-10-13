@@ -12,7 +12,7 @@ I used Visual Studio Code for the IDE and GitHub to communicate my files in a sa
 
 # Useful Websites
 
-- [Web Site Name]([http://url.link.goes.here](https://doc.rust-lang.org/beta/book/ch01-00-getting-started.html))
+- [Rust Manual]([[http://url.link.goes.here])
 
 # Future Work
 
