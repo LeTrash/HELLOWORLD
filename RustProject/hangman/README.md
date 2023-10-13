@@ -4,14 +4,14 @@ This program asks if the user wants to play a game and if the answer is yes then
 
 
 
-[Software Demo Video]:https://www.youtube.com/watch?v=BP8cd0FVuZI
+[Software Demo Video]([https://www.youtube.com/watch?v=BP8cd0FVuZI])
 # Development Environment
 
 I used Visual Studio Code for the IDE and GitHub to communicate my files in a safe and connected way. I handled the basics of the Rust language as well as dived into a couple of libraries such as Rand::rng, to complete this specific task.
 
 # Useful Websites
 
-- [Rust Manual]:https://doc.rust-lang.org/beta/book/ch01-00-getting-started.html
+- [Rust Manual]([https://doc.rust-lang.org/beta/book/ch01-00-getting-started.html])
 
 # Future Work
 
