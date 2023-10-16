@@ -8,3 +8,28 @@
   font-weight: 900;
   display: none;
 }
+
+.formElement {
+  text-align: center;
+  line-height: 1.8;
+}
+
+h1,
+h3,
+img {
+  text-align: center;
+}
+
+img {
+  height: 500px;
+  width: 700px;
+}
+
+.request {
+  background-color: Violet;
+  padding: 5px;
+  border-style: ridge;
+  border-width: 5px;
+  border-color: blueviolet;
+  border-radius: 5px;
+}
