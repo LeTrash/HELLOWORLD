@@ -4,7 +4,7 @@
 Provide a simple board for people from BYU-I to discuss controversial topics about the campus and university, in hopes that they will be given a voice to reach those with the power to do something about it.
 
 
-[Software Demo Video](https://youtu.be/4ll3M-L8k0o)
+* [Software Demo Video](https://youtu.be/4ll3M-L8k0o)
 
 # Web Pages
 
@@ -17,7 +17,7 @@ I used React to implement this project as well as Visual Studio Code for the IDE
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
+
 * [W3Schools](https://www.w3schools.com/css/default.asp)
 * [Firebase Documentation](https://firebase.google.com/docs)
 
