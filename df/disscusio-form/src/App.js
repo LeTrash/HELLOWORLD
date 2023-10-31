@@ -4,18 +4,25 @@ import "./App.css";
 import responseRef from "./firebase";
 import "firebase/database";
 import handleReplyClick from "./QuestionBox";
+import { onValue } from "firebase/database";
 
 const App = () => {
   const [responses, setResponses] = useState([]);
 
   useEffect(() => {
-    responseRef.on("value", (snapshot) => {
-      const responseData = snapshot.val();
-      if (responseData) {
-        const responseList = Object.values(responseData);
-        setResponses(responseList);
-      }
+    onValue(responseRef, (snapshot) => {
+      const data = snapshot.val();
+      // const responseList = Object.values(data);
+      // setResponses(responseList);
+      console.log(data);
     });
+    // responseRef.on("value", (snapshot) => {
+    //   const responseData = snapshot.val();
+    //   if (responseData) {
+    //     const responseList = Object.values(responseData);
+    //     setResponses(responseList);
+    //   }
+    // });
   }, []);
   return (
     <div className="App">
