@@ -33,3 +33,9 @@ img {
   border-color: blueviolet;
   border-radius: 5px;
 }
+
+table {
+  border-style: ridge;
+  border-width: 5px;
+  border-radius: 5px;
+}
