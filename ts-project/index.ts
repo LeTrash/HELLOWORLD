@@ -3,6 +3,8 @@ class DrawingApp {
   private context: CanvasRenderingContext2D;
   private paint: boolean;
   private currentColor: string = "#000000"; //default
+  private lineWidth = 1;
+  private clickColors: string[][] = [];
 
   private clickX: number[] = [];
   private clickY: number[] = [];
@@ -14,44 +16,34 @@ class DrawingApp {
     context.lineCap = "round";
     context.lineJoin = "round";
     // context.strokeStyle = this.currentColor; //set initial color
-    context.lineWidth = 10;
+    context.lineWidth = this.lineWidth;
 
     this.canvas = canvas;
     this.context = context;
 
     this.redraw();
+    this.startDrawing();
+    this.stopDrawing();
     this.createUserEvents();
   }
 
-  private changeStrokeSize(size: number) {
-    this.context.lineWidth = size;
-  }
-
-  private colorChange(color: string) {
-    this.currentColor = color;
-    this.context.strokeStyle = this.currentColor; //set new color
-  }
-
   private startDrawing() {
+    this.canvas.addEventListener("mousedown", this.pressEventHandler);
+    this.canvas.addEventListener("mousemove", this.dragEventHandler);
+    this.canvas.addEventListener("touchstart", this.pressEventHandler);
+    this.canvas.addEventListener("touchmove", this.dragEventHandler);
     this.context.strokeStyle = this.currentColor;
   }
 
   private stopDrawing() {
+    this.canvas.addEventListener("mouseup", this.releaseEventHandler);
+    this.canvas.addEventListener("mouseout", this.cancelEventHandler);
+    this.canvas.addEventListener("touchend", this.releaseEventHandler);
+    this.canvas.addEventListener("touchcancel", this.cancelEventHandler);
     this.context.strokeStyle = this.currentColor;
   }
 
   private createUserEvents() {
-    let canvas = this.canvas;
-    canvas.addEventListener("mousedown", this.pressEventHandler);
-    canvas.addEventListener("mousemove", this.dragEventHandler);
-    canvas.addEventListener("mouseup", this.releaseEventHandler);
-    canvas.addEventListener("mouseout", this.cancelEventHandler);
-
-    canvas.addEventListener("touchstart", this.pressEventHandler);
-    canvas.addEventListener("touchmove", this.dragEventHandler);
-    canvas.addEventListener("touchend", this.releaseEventHandler);
-    canvas.addEventListener("touchcancel", this.cancelEventHandler);
-
     document
       .getElementById("clear")
       .addEventListener("click", this.clearEventHandler);
@@ -77,28 +69,21 @@ class DrawingApp {
     });
   }
 
-  private redraw() {
-    let clickX = this.clickX;
-    let context = this.context;
-    let clickDrag = this.clickDrag;
-    let clickY = this.clickY;
-    for (let i = 0; i < clickX.length; i++) {
-      context.beginPath();
-      if (clickDrag[i] && i) {
-        context.moveTo(clickX[i - 1], clickY[i - 1]);
-      } else {
-        context.moveTo(clickX[i] - 1, clickY[i]);
-      }
-      context.lineTo(clickX[i], clickY[i]);
-      context.stroke();
-    }
-    context.closePath();
-  }
-
   private addClick(x: number, y: number, dragging: boolean) {
     this.clickX.push(x);
     this.clickY.push(y);
     this.clickDrag.push(dragging);
+    this.clickColors.push([]);
+    this.clickColors[this.clickColors.length - 1].push(this.currentColor);
+  }
+
+  private changeStrokeSize(size: number) {
+    this.context.lineWidth = size;
+  }
+
+  private colorChange(color: string) {
+    this.currentColor = color;
+    this.context.strokeStyle = this.currentColor; //set new color
   }
 
   private clearCanvas() {
@@ -169,6 +154,26 @@ class DrawingApp {
       downloadLink.setAttribute("href", url);
       downloadLink.click();
     }
+  }
+
+  private redraw() {
+    let clickX = this.clickX;
+    let context = this.context;
+    let clickDrag = this.clickDrag;
+    let clickY = this.clickY;
+
+    for (let i = 0; i < this.clickX.length; i++) {
+      context.beginPath();
+      context.strokeStyle = this.clickColors[i][0];
+      if (clickDrag[i] && i) {
+        context.moveTo(clickX[i - 1], clickY[i - 1]);
+      } else {
+        context.moveTo(clickX[i] - 1, clickY[i]);
+      }
+      context.lineTo(clickX[i], clickY[i]);
+      context.stroke();
+    }
+    context.closePath();
   }
 }
 const drawingAppInstance = new DrawingApp();

@@ -2,6 +2,7 @@
 class DrawingApp {
     constructor() {
         this.currentColor = "#000000"; //default
+        this.lineWidth = 1;
         this.clickX = [];
         this.clickY = [];
         this.clickDrag = [];
@@ -50,7 +51,7 @@ class DrawingApp {
         context.lineCap = "round";
         context.lineJoin = "round";
         // context.strokeStyle = this.currentColor; //set initial color
-        context.lineWidth = 10;
+        context.lineWidth = this.lineWidth;
         this.canvas = canvas;
         this.context = context;
         this.redraw();

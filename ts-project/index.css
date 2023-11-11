@@ -33,14 +33,14 @@
 .strokes {
   position: absolute;
   border-style: dashed;
-  left: 600px;
+  left: 1010px;
   top: 500px;
 }
 
 .ss {
   margin: 0 auto;
   width: 40px;
-  height: 40px;
+  height: 20px;
 }
 /* head,
 body {
@@ -48,6 +48,3 @@ body {
   width: 50%;
   text-align: center;
 } */
-
-/* https://www.js-craft.io/blog/passing-a-css-variable-value-from-the-html-into-the-css/ 
-https://kernhanda.github.io/tutorial-typescript-canvas-drawing/*/

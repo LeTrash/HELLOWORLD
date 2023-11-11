@@ -29,63 +29,69 @@
           class="colorbutton"
           style="--color-button: #000000"
           data-color="#000000"
-          onclick="colorChange('#000000')"
+          onclick="drawingAppInstance.colorChange('#000000')"
         ></button>
 
         <button
           class="colorbutton"
           style="--color-button: #ff0000"
           data-color="#FF0000"
-          onclick="colorChange('#FF0000')"
+          onclick="drawingAppInstance.colorChange('#FF0000')"
         ></button>
 
         <button
           class="colorbutton"
           style="--color-button: #ffa500"
           data-color="#FFA500"
-          onclick="colorChange('#FFA500')"
+          onclick="drawingAppInstance.colorChange('#FFA500')"
         ></button>
 
         <button
           class="colorbutton"
           style="--color-button: #ffff00"
           data-color="#FFFF00"
-          onclick="colorChange('#FFFF00')"
+          onclick="drawingAppInstance.colorChange('#FFFF00')"
         ></button>
 
         <button
           class="colorbutton"
           style="--color-button: #008000"
           data-color="#008000"
-          onclick="colorChange('#008000')"
+          onclick="drawingAppInstance.colorChange('#008000')"
         ></button>
 
         <button
           class="colorbutton"
           style="--color-button: #0000ff"
           data-color="#0000FF"
-          onclick="colorChange('#0000FF')"
+          onclick="drawingAppInstance.colorChange('#0000FF')"
         ></button>
 
         <button
           class="colorbutton"
           style="--color-button: #4b0082"
           data-color="#4B0082"
-          onclick="colorChange('#4B0082')"
+          onclick="drawingAppInstance.colorChange('#4B0082')"
         ></button>
 
         <button
           class="colorbutton"
           style="--color-button: #ee82ee"
           data-color="#EE82EE"
-          onclick="colorChange('#EE82EE')"
+          onclick="drawingAppInstance.colorChange('#EE82EE')"
         ></button>
       </div>
 
       <div class="strokes">
-        <button class="ss" onclick="changeStrokeSize(5)">5px</button>
-        <button class="ss" onclick="changeStrokeSize(10)">10px</button>
-        <button class="ss" onclick="changeStrokeSize(15)">15px</button>
+        <button class="ss" onclick="drawingAppInstance.changeStrokeSize(5)">
+          5px
+        </button>
+        <button class="ss" onclick="drawingAppInstance.changeStrokeSize(10)">
+          10px
+        </button>
+        <button class="ss" onclick="drawingAppInstance.changeStrokeSize(15)">
+          15px
+        </button>
       </div>
 
       <button id="clear">clear</button>
