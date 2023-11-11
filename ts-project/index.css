@@ -1,0 +1,53 @@
+.colors {
+  margin: auto;
+  text-align: center;
+  width: 400px;
+  /* height: 30px; */
+  padding: 5px;
+  border: 5px
+    linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  border-style: dashed;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.colorbutton {
+  /* display: block; */
+  margin: 0 auto;
+  background-color: var(--color-button);
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+}
+
+.yuh,
+.content {
+  font-family: "Comic Sans MS";
+  margin: auto;
+  text-align: center;
+}
+
+.strokes {
+  position: absolute;
+  border-style: dashed;
+  left: 600px;
+  top: 500px;
+}
+
+.ss {
+  margin: 0 auto;
+  width: 40px;
+  height: 40px;
+}
+/* head,
+body {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+} */
+
+/* https://www.js-craft.io/blog/passing-a-css-variable-value-from-the-html-into-the-css/ 
+https://kernhanda.github.io/tutorial-typescript-canvas-drawing/*/

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Drawing</title>
+    <div class="yuh">
+      <h1>Passing Doodles</h1>
+      <h4>
+        Doodle while you're trying to pass time whether it be at work or class
+      </h4>
+    </div>
+  </head>
+
+  <body>
+    <div class="content">
+      <canvas
+        id="canvas"
+        width="490"
+        height="490"
+        style="border: 1px solid black"
+      >
+      </canvas>
+
+      <div class="colors">
+        <button
+          class="colorbutton"
+          style="--color-button: #000000"
+          data-color="#000000"
+          onclick="colorChange('#000000')"
+        ></button>
+
+        <button
+          class="colorbutton"
+          style="--color-button: #ff0000"
+          data-color="#FF0000"
+          onclick="colorChange('#FF0000')"
+        ></button>
+
+        <button
+          class="colorbutton"
+          style="--color-button: #ffa500"
+          data-color="#FFA500"
+          onclick="colorChange('#FFA500')"
+        ></button>
+
+        <button
+          class="colorbutton"
+          style="--color-button: #ffff00"
+          data-color="#FFFF00"
+          onclick="colorChange('#FFFF00')"
+        ></button>
+
+        <button
+          class="colorbutton"
+          style="--color-button: #008000"
+          data-color="#008000"
+          onclick="colorChange('#008000')"
+        ></button>
+
+        <button
+          class="colorbutton"
+          style="--color-button: #0000ff"
+          data-color="#0000FF"
+          onclick="colorChange('#0000FF')"
+        ></button>
+
+        <button
+          class="colorbutton"
+          style="--color-button: #4b0082"
+          data-color="#4B0082"
+          onclick="colorChange('#4B0082')"
+        ></button>
+
+        <button
+          class="colorbutton"
+          style="--color-button: #ee82ee"
+          data-color="#EE82EE"
+          onclick="colorChange('#EE82EE')"
+        ></button>
+      </div>
+
+      <div class="strokes">
+        <button class="ss" onclick="changeStrokeSize(5)">5px</button>
+        <button class="ss" onclick="changeStrokeSize(10)">10px</button>
+        <button class="ss" onclick="changeStrokeSize(15)">15px</button>
+      </div>
+
+      <button id="clear">clear</button>
+      <button
+        id="download"
+        onclick="drawingAppInstance.DownloadCanvasAsImage()"
+      >
+        Download Image
+      </button>
+      <script src="index.js"></script>
+    </div>
+  </body>
+</html>
