@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 248, in script
+    jump mat_movie
+ScriptError: could not find label 'mat_movie'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 248, in script
+    jump mat_movie
+  File "/Users/jessicaclark/Documents/renpy-8.1.3-sdk/renpy/ast.py", line 1992, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Users/jessicaclark/Documents/renpy-8.1.3-sdk/renpy/script.py", line 1013, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'mat_movie'.
+
+macOS-14.0-arm64-arm-64bit arm64
+Ren'Py 8.1.3.23091805
+dating_game 1.0
+Thu Nov 23 12:37:03 2023
