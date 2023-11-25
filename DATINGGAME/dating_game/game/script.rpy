@@ -8,12 +8,12 @@ define m = Character("Welcome Mat")
 define player_name = Character("Me")
 define e = Character("Exie")
 define t = Character("Trance")
-define mat_love_score = 0 # Medium
-define exie_love_score = 5 #Easy
-define trance_love_score = -5 #Hard
+define mat_love_score = 0  # Medium
+define exie_love_score = 5  # Easy
+define trance_love_score = -5  # Hard
 define tname = False
 define ename = False
-#User has to get their love score up to 10 in order to be invited to their house which continues the story. The user doesn't know about the love score as it is tracked behind the scenes but it is obvious that certain actions are more positive than others.
+# User has to get their love score up to 10 in order to be invited to their house which continues the story. The user doesn't know about the love score as it is tracked behind the scenes but it is obvious that certain actions are more positive than others.
 
 screen character_choice:
     imagebutton:
@@ -38,7 +38,6 @@ screen character_choice:
         action Jump("trance_label")
 
 
-
 # The game starts here.
 
 label start:
@@ -60,7 +59,7 @@ label start:
 
     s "What was that?"
 
-    show welcome at center 
+    show welcome at center
 
     # These display lines of dialogue.
     "You turn around to the sign of a handsome teenager."
@@ -72,8 +71,9 @@ label start:
     s "You mentioned you're new right? What do you go by?"
 
     $ player_name = renpy.input("What is your name?")
-    
-    $ player_name = player_name.strip() #lines beginning with a dollar-sign are interpreted as Python statements.
+
+    # lines beginning with a dollar-sign are interpreted as Python statements.
+    $ player_name = player_name.strip()
     if player_name == "":
         $ player_name = "Me"
 
@@ -84,7 +84,7 @@ label start:
     menu follow_menu:
         "Will you go with him?"
 
-        "Random hot stranger? Sure why not!": 
+        "Random hot stranger? Sure why not!":
             jump follow
 
         "Ew, rando trying to flirt? Hard pass":
@@ -94,15 +94,13 @@ label start:
             return
 
 
-
-
 label follow:
     "You follow Mat, curious of what his brothers may look like and to your surprise, they're a tad different"
-    
-    show exit at left 
+
+    show exit at left
     "You first spot a boy with shy features and a green Exit sign on his head. He jolts in surprise as he notices you approach."
 
-    show entrance at right 
+    show entrance at right
     "To his side is a well-kept boy with an entrance sign, similar to the exit sign. He has his head in a book, occasiocally writting notes on the side and pushing up his glasses as they slide down his square face. He doesn't bother to look up when you and Mat approach."
 
     m "Hey bros, we got a non-sweaty new kid here joining us. Come on and say hi."
@@ -119,16 +117,16 @@ label follow:
     m "{i}shrugs{/i} They can be weird but somebody's gotta live with them."
     "Mat squeezes in between the two of them."
     m "Feel free to take a seat anywhere, the teacher doesn't usually start until 10 minutes in so relax for a bit."
-    
+
     jump choices
-    
+
 label choices:
     if mat_love_score > 10:
         jump mat_invite
     elif trance_love_score > 10:
-        jump mat_invite #replace with trance_inite
+        jump mat_invite  # replace with trance_inite
     elif exie_love_score > 10:
-        jump exie_invite # replace iwth exie_inite
+        jump exie_invite  # replace iwth exie_inite
     else:
         "who will you sit with?"
         hide welcome
@@ -142,13 +140,15 @@ label trance_label:
     show entrance at center
     t "hm..."
     menu:
-        "Hi, I'm [player_name]":
-
+        
+        "Hi, I'm [player_name]" if tname == False:
+            
             if trance_love_score < 0:
                 "..."
                 "Entrance sign continues to ignore you"
                 jump choices
             elif trance_love_score >= 0:
+                $ tname = True
                 "..."
                 t "Thats...a nice name. I'm Entrance sign...but as my brothers said, I've gone by Trance"
                 jump trance_label
@@ -170,7 +170,7 @@ label trance_label:
                 t "{size=-14}I'm reading ...The Chemistry Between Us...{/size}"
                 player_name "Um, I'm sorry, I couldn't quite here you"
                 "He shoves the book towards you, cleary embarassed to speak it out loud."
-                show TCBU 
+                show TCBU
                 "The book reads 'The Chemistry Between us' by .... It's clearly in a textbook format despite the cheesy title"
                 hide TCBU
                 "He whips the book back, clearly embarassed"
@@ -191,7 +191,7 @@ label trance_2:
             "dialouge"
             t "dialouge"
         "-talk to someone else-":
-            jump choices   
+            jump choices
 
     menu:
         "option 1":
@@ -203,7 +203,7 @@ label trance_2:
             "dialouge"
             t "dialouge"
         "-talk to someone else-":
-            jump choices 
+            jump choices
 
     menu:
         "option 1":
@@ -215,7 +215,7 @@ label trance_2:
             "dialouge"
             t "dialouge"
         "-talk to someone else-":
-            jump choices 
+            jump choices
 
     menu:
         "option 1":
@@ -227,9 +227,7 @@ label trance_2:
             "dialouge"
             t "dialouge"
         "-talk to someone else-":
-            jump choices 
-
-
+            jump choices
 
 
 label exie_label:
@@ -237,37 +235,41 @@ label exie_label:
     $ exie_love_score += 2
     $ trance_love_score += 1
     "You decide to sit next to Exit sign, noticing him jump a little as you do."
-    e "Oh hi! I'm Exit sign. Oh well I guess you knew that from Mat introducting us...but you can call me Exie if that's easier to remember! So uh...yeah, that's me..."
-    "He sits there akwardly, twiddling his thumbs"
-    menu:
-        "Soooooo, are you going to ask my name?":
-            $ trance_love_score -=1
-            e"Oh! I'm sorry, right what's your name?"
-            player_name "{i}SIGH{/i} [player_name] {i}You roll your eyes{/i}"
-            e "Right, uh , cool! {size=-5}[player_name] [player_name] [player_name] {size}{i}He mumbles in a hushed voice over and over{/i}"
-            $ exie_love_score -= 2
-            jump exie_2
-        "Yo! I'm [player_name]":
-            $ trance_love_score += 1
-            $ exie_love_score += 2
-            e "Nice to meet you"
-            "..."
-            player_name "Am I making you nervous? I can move somewhere else-"
-            "He looks at you in surprise"
-            e "Oh! no no no! You're fine! I'm just not used to talking to people other than my brothers and usually, heheh, Mat just does all the talking"
-            m "That's because once you start talking about your obessions you don't let anyone else get a word in! {i}You hear Mat pop in from the side before quickly dipping out{/i}"
-            e "H-hey! I let others talk!{size=-8} People just don't...like to talk{/size}{size=-12} about what I want to...{/size} {i}he trails off {/i}"
-            jump exie_2
-        "-talk to someone else-":
-            jump choices
+    if ename == True:
+
+        e "Oh hi! I'm Exit sign. Oh well I guess you knew that from Mat introducting us...but you can call me Exie if that's easier to remember! So uh...yeah, that's me..."
+        "He sits there akwardly, twiddling his thumbs"
+        $ ename = True
+        menu:
+            "Soooooo, are you going to ask my name?":
+                $ trance_love_score -= 1
+                e"Oh! I'm sorry, right what's your name?"
+                player_name "{i}SIGH{/i} [player_name] {i}You roll your eyes{/i}"
+                e "Right, uh , cool! {size=-5}[player_name] [player_name] [player_name] {size}{i}He mumbles in a hushed voice over and over{/i}"
+                $ exie_love_score -= 2
+                jump exie_2
+            "Yo! I'm [player_name]":
+                $ trance_love_score += 1
+                $ exie_love_score += 2
+                e "Nice to meet you"
+                "..."
+                player_name "Am I making you nervous? I can move somewhere else-"
+                "He looks at you in surprise"
+                e "Oh! no no no! You're fine! I'm just not used to talking to people other than my brothers and usually, heheh, Mat just does all the talking"
+                m "That's because once you start talking about your obessions you don't let anyone else get a word in! {i}You hear Mat pop in from the side before quickly dipping out{/i}"
+                e "H-hey! I let others talk!{size=-8} People just don't...like to talk{/size}{size=-12} about what I want to...{/size} {i}he trails off {/i}"
+                jump exie_2
+            "-talk to someone else-":
+                jump choices
+    jump exie_2
 
 label exie_2:
     menu:
         "So like, why do you look so weird??":
-            $ trance_love_score -=1
+            $ trance_love_score -= 1
             e "Huh? I look weird?"
             player_name "Yeah, like a freak with that odd sign on your face."
-            $ trance_love_score -=2
+            $ trance_love_score -= 2
             e "Um...I-I don't know... this is just how I was born...sorry"
             "You notice the boy tear up a bit"
             jump choices
@@ -275,6 +277,42 @@ label exie_2:
             $ trance_love_score += 1
             e "Oh um, yeah. They kinda set up slides and stuff for a bit as we're going over the first aid unit. So we get to just sit here for a while..."
             jump choices
+        "-talk to someone else-":
+            jump choices
+        
+    menu:
+        "option 1":
+            $ exie_love_score += 3
+            "dialouge"
+            e "dialouge"
+        "option 2":
+            $ exie_love_score -= 3
+            "dialouge"
+            e "dialouge"
+        "-talk to someone else-":
+            jump choices
+
+    menu:
+        "option 1":
+            $ exie_love_score += 1
+            "dialouge"
+            e "dialouge"
+        "option 2":
+            $ exie_love_score -= 2
+            "dialouge"
+            e "dialouge"
+        "-talk to someone else-":
+            jump choices
+
+    menu:
+        "option 1":
+            $ exie_love_score -= 2
+            "dialouge"
+            e "dialouge"
+        "option 2":
+            $ exie_love_score += 5
+            "dialouge"
+            e "dialouge"
         "-talk to someone else-":
             jump choices
 
@@ -289,7 +327,7 @@ label mat_label:
             $ trance_love_score += 1
             m "Hm, mostly day dream about cute folk"
             "He looks at you with a sly grin"
-            
+
             $ mat_love_score += 2
             jump mat_special
         "Ugh, {i}You roll your eyes{/i} do you flirt with everyone?":
@@ -308,7 +346,6 @@ label mat_special:
                 $ mat_love_score -= 3
                 m "What? no! That's not what I meant at all!"
                 player_name "{i}scoff{/i} sure."
-            
 
             "Really? Again with your f-boy attitude?":
                 $ trance_love_score += 1
@@ -318,43 +355,7 @@ label mat_special:
 
             "-talk to someone else-":
                 jump choices
-        
-        menu:
-        "option 1":
-            $ exie_love_score += 3
-            "dialouge"
-            e "dialouge"
-        "option 2":
-            $ exie_love_score -= 3
-            "dialouge"
-            e "dialouge"
-        "-talk to someone else-":
-            jump choices 
 
-        menu:
-        "option 1":
-            $ exie_love_score += 1
-            "dialouge"
-            e "dialouge"
-        "option 2":
-            $ exie_love_score -= 2
-            "dialouge"
-            e "dialouge"
-        "-talk to someone else-":
-            jump choices 
-
-        menu:
-        "option 1":
-            $ exie_love_score -= 2
-            "dialouge"
-            e "dialouge"
-        "option 2":
-            $ exie_love_score += 5
-            "dialouge"
-            e "dialouge"
-        "-talk to someone else-":
-            jump choices 
-    
     menu:
         "Well do you do anything else besides think about your hormones?":
             $ trance_love_score -= 1
@@ -377,7 +378,7 @@ label mat_special:
         "So, are you and your brother's triplets?":
             "He gives you a pained look."
             m "I'd rather not talk about it"
-              
+
         "-talk to someone else-":
             jump choices
 
@@ -399,7 +400,7 @@ label mat_special:
 
         "-talk to someone else-":
             jump choices
-    
+
     menu:
         m "So how come you came in the middle of the school year? Military?"
         "Yeah...uh military...something like that":
@@ -428,7 +429,6 @@ label mat_special:
     "After talking for a while you come to a breaking point"
     hide welcomemat
     jump choices
-            
 
 
 label mat_invite:
@@ -469,7 +469,7 @@ label exie_invite:
         "I'm not sure, I'm not too great at video games but I'd love to try":
             e "Oh! S-sorry, I know not everyone likes my interests...but I'm sure we can do something fun"
             "He grabs a pen and paper from his backpack. He scribbles on the paper before giving it to you."
-            e "Here! My address, come after school whenever!"    
+            e "Here! My address, come after school whenever!"
             jump signs_home
         "{b}Lie{/b}Sorry...I'm busy later":
             $ exie_love_score -= 5
@@ -493,7 +493,7 @@ label trance_invite:
             t "Oh...that's cool, I understand"
             jump choices
 
-            
+
 label signs_home:
     "You arrive at the house before you, checking the address that was written for you with the one on google maps. It looked to be the right address but you were a bit nervous for this...date?You weren't sure you could call it a date, especially since you just met the guy but the idea of it being a date left a fuzzy feeling in your chest."
     if mat_love_score >= 10:
@@ -504,8 +504,7 @@ label signs_home:
         jump trance_date
     else:
         "How the frick did you get to this screen??"
-        return 
-
+        return
 
 
 label mat_date:
@@ -515,9 +514,7 @@ label mat_date:
 label exie_date:
     "As you start to walk up to the front porch the door opens and Exie peeks through the opening."
     e "Hi [player_name]! Glad you could make it!"
-    
+
 label trance_date:
     "As you walk up to the front porch you can see Mat through the windows, lounging on the living room couch."
     "He notices you with a lazy look and calls to Trance as you ring the door bell"
-
-
