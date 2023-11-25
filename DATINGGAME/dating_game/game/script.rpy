@@ -20,21 +20,21 @@ screen character_choice:
         xalign 0.5
         yalign 0.5
         idle "welcomemat.png"
-        hover "welcomemat.png"
+        hover "welcomemat_hover.png"
         action Jump("mat_label")
 
     imagebutton:
         xalign 0.2
         yalign 0.5
         idle "exit.png"
-        hover "exit.png"
+        hover "exit_hover.png"
         action Jump("exie_label")
 
     imagebutton:
         xalign 0.8
         yalign 0.5
         idle "entrance.png"
-        hover "entrance.png"
+        hover "entrance_hover.png"
         action Jump("trance_label")
 
 
@@ -510,6 +510,7 @@ label signs_home:
 label mat_date:
     "As you walk up to the front porch you can see Mat through the windows, lounging on the living room couch."
     "You smile as you notice him swipping through reels on instagram"
+    jump mat_movie
 
 label exie_date:
     "As you start to walk up to the front porch the door opens and Exie peeks through the opening."
