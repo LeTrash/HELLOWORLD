@@ -2,7 +2,7 @@
 
 In my Freshman year of high school, my friends and I often had 10-20 minutes to ourselves during Gym class as the teacher would be busy doing other things. In order to pass the time we found ourselves playing silly games. One of them turned out to be Marry, Kiss, Kill and we had one of our guy friends play with us. When we asked him who the options were he jokingly said "Entrance sign, Exit sign, and Welcome Mat". We took it seriously, and I drew the characters into human forms, saying that one day I'd make a dating game with these characters. I wasn't quite serious about that last part but I realized I could once I got into programming. I was then given the opportunity to learn gaming engines and took it upon myself to hold true to my statement many years ago. Therefore I have made a visual novel that centers around the concept of gaining the favor of one of the three boys presented. It utilizes the ren'py language to present the story to the user and a bit of Python logic in order to add to the functionality and effects of the game/favor.
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the game being played and a walkthrough of the code.}
+=
 
 [Software Demo Video](https://youtu.be/pP-5M9K5vz4![image](https://github.com/LeTrash/HELLOWORLD/assets/113535843/3c9c70b2-06f2-41a4-bf46-b600f08e752e)
 )
