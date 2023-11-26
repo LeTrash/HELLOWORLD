@@ -1,26 +1,27 @@
 # Overview
 
-In Freshman year of highschool, my friends and I often had 10-20 minutes to ourselves during Gym class as the teacher would be busy doing other things. In order to pass the time we found ourselves playing silly games. One of them turned out to be Marry, Kiss, Kill and we had one of our guy friends play with us. When we asked him who the options were he jokingly said "Entrance sign, Exit sign, and Welcome Mat". Well, we took it seriously and I drew the character into human forms, saying that one day I'd make a dating game with these characters. I wasn't quite serious about that last part but once I got into programing I realized I could. I was then given the oppourntity to learn gaming engines and took it upon myself to hold true to my statement many years ago. Therefore I have made a visual novel that centers around the concept of gaining the favor of one of the three boys presented. It utilizes the ren'py language to present the story to the user and a bit of Python logic in order to add in the functionality and effects of the game/favor.
+In my Freshman year of high school, my friends and I often had 10-20 minutes to ourselves during Gym class as the teacher would be busy doing other things. In order to pass the time we found ourselves playing silly games. One of them turned out to be Marry, Kiss, Kill and we had one of our guy friends play with us. When we asked him who the options were he jokingly said "Entrance sign, Exit sign, and Welcome Mat". We took it seriously, and I drew the characters into human forms, saying that one day I'd make a dating game with these characters. I wasn't quite serious about that last part but I realized I could once I got into programming. I was then given the opportunity to learn gaming engines and took it upon myself to hold true to my statement many years ago. Therefore I have made a visual novel that centers around the concept of gaining the favor of one of the three boys presented. It utilizes the ren'py language to present the story to the user and a bit of Python logic in order to add to the functionality and effects of the game/favor.
 
 {Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the game being played and a walkthrough of the code.}
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/pP-5M9K5vz4![image](https://github.com/LeTrash/HELLOWORLD/assets/113535843/3c9c70b2-06f2-41a4-bf46-b600f08e752e)
+)
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
-
-{Describe the programming language that you used and any libraries.}
+I utilized the Ren'py language and package that allowed me to present the game in an application. I also used Python logic and statements to have certain functionality throughout the game.
 
 # Useful Websites
 
 {Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+* [Offical Renpy Documentation](https://www.renpy.org/doc/html/quickstart.html)
+* [Video about image buttons and how they function on screens](https://www.youtube.com/watch?v=4O3uqLpvnKE)
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
-* Item 3
+* Add in self-drawn characters and backgrounds
+* Finish dialogue and story
+* Add in little mini-games for the user to interact with
+* Add in personalization for the user's character other than just their name
+* Personalize the screen and text boxes
+* Organize jump statements by characters in separate files
